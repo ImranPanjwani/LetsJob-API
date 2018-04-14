@@ -1,0 +1,16 @@
+{
+  "name": "library-api",
+  "version": "1.0.0",
+  "description": "An api for library management",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Imran Panjwani",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3"
+  }
+}
