@@ -12,6 +12,11 @@ const chalk = require('chalk');
 dotenv.load({path: '.env'});
 
 /**
+ * Controllers ( Route handlers )
+ */
+const bookController = require('./controllers/book');
+
+/**
  * Create Express App
  */
 const app = express();
@@ -21,6 +26,11 @@ const app = express();
  */
 app.set('port', process.env.PORT || 3000);
 app.use(logger('dev')); 
+
+/**
+ * Basic app routes
+ */
+app.get('/books', bookController.getBooks);
 
 /**
  * Start express server
