@@ -1,8 +1,8 @@
 {
-  "name": "library-api",
+  "name": "letsjob-api",
   "version": "1.0.0",
   "repository": {
-    "url": "https://github.com/ImranPanjwani/LibraryAPI"
+    "url": "https://github.com/ImranPanjwani/LetsJob-API"
   },
   "description": "An api for library management",
   "main": "app.js",
