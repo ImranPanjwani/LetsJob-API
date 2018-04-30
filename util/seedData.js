@@ -44,7 +44,6 @@ module.exports = () => {
       category: 'BD',
       contact_emails: ['rst@gmail.com'],
       contact_numbers: ['7777777777']
-
     },
     {
       title: 'Job 7',
@@ -54,7 +53,7 @@ module.exports = () => {
       contact_numbers: ['9999999999']
     }
   ];
-  Job.find({}).then(totalResults => {
+  Job.find({}).then((totalResults) => {
     if (totalResults.length === 0) {
       Job.create(jobs, (err, results) => {
         if (err) {
@@ -62,18 +61,14 @@ module.exports = () => {
           console.log('%s Error while seeding data.', chalk.red('\u2718'));
           return;
         }
-        console.log(
-          '%s Data seeding completed. Seeded %d jobs.',
+        console.log('%s Data seeding completed. Seeded %d jobs.',
           chalk.green('\u2713'),
-          results.length
-        );
+          results.length);
       });
       return;
     }
-    console.log(
-      '%s No seeding required. DB contains %d jobs.',
+    console.log('%s No seeding required. DB contains %d jobs.',
       chalk.green('\u2713'),
-      totalResults.length
-    );
+      totalResults.length);
   });
 };

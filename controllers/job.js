@@ -9,7 +9,7 @@ exports.getJobs = (req, res) => {
     .then((results) => {
       res.send(results);
     })
-    .catch(err => {
+    .catch((err) => {
       res.send(err);
     });
 };
