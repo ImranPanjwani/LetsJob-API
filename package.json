@@ -7,7 +7,6 @@
   "description": "An api for library management",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Imran Panjwani",
@@ -18,9 +17,14 @@
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "mongoose": "^5.0.14",
-    "morgan": "^1.9.0"
+    "mongoose-unique-validator": "^2.0.1",
+    "morgan": "^1.9.0",
+    "slug": "^0.9.1"
   },
   "devDependencies": {
     "nodemon": "^1.17.3"
+  },
+  "engines": {
+    "node": "8.8.1"
   }
 }

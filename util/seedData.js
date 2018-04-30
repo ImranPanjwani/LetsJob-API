@@ -1,57 +1,77 @@
-const Book = require('../models/Book');
+const Job = require('../models/Job');
 const chalk = require('chalk');
 
 module.exports = () => {
-  const books = [
+  const jobs = [
     {
-      name: 'Don Quixote',
-      authorName: 'Miguel de Cervantes',
-      category: 'SELF-HELP',
-      price: 250
+      title: 'Job 1',
+      description: 'Description about job 1',
+      category: 'ENGR',
+      contact_emails: ['abc@gmail.com'],
+      contact_numbers: ['9999999999']
     },
     {
-      name: 'In Search of Lost Time',
-      authorName: 'Marcel Proust',
-      category: 'HORROR',
-      price: 300
+      title: 'Job 2',
+      description: 'Description about job 2',
+      category: 'MARKT',
+      contact_emails: ['def@gmail.com'],
+      contact_numbers: ['8888888888']
     },
     {
-      name: 'Ulysses',
-      authorName: 'James Joyce',
-      category: 'THRILLER',
-      price: 400
+      title: 'Job 3',
+      description: 'Description about job 3',
+      category: 'TEACH',
+      contact_emails: ['ghi@gmail.com'],
+      contact_numbers: ['7777777777']
     },
     {
-      name: 'The Odyssey',
-      authorName: 'Homer',
-      category: 'FICTION',
-      price: 100
+      title: 'Job 4',
+      description: 'Description about job 4',
+      category: 'IT',
+      contact_emails: ['lmn@gmail.com'],
+      contact_numbers: ['9999999999']
     },
     {
-      name: 'War and Peace',
-      authorName: 'Leo Tolstoy',
-      category: 'FICTION',
-      price: 600
+      title: 'Job 5',
+      description: 'Description about job 5',
+      category: 'FINACC',
+      contact_emails: ['opq@gmail.com'],
+      contact_numbers: ['8888888888']
+    },
+    {
+      title: 'Job 6',
+      description: 'Description about job 6',
+      category: 'BD',
+      contact_emails: ['rst@gmail.com'],
+      contact_numbers: ['7777777777']
+
+    },
+    {
+      title: 'Job 7',
+      description: 'Description about job 7',
+      category: 'BANK',
+      contact_emails: ['uvw@gmail.com'],
+      contact_numbers: ['9999999999']
     }
   ];
-  Book.find({}).then(totalResults => {
+  Job.find({}).then(totalResults => {
     if (totalResults.length === 0) {
-      Book.create(books, (err, results) => {
+      Job.create(jobs, (err, results) => {
         if (err) {
           console.log(err);
           console.log('%s Error while seeding data.', chalk.red('\u2718'));
           return;
         }
         console.log(
-          '%s Data seeding completed. Seeded %d books.',
+          '%s Data seeding completed. Seeded %d jobs.',
           chalk.green('\u2713'),
           results.length
         );
       });
-      return;  
+      return;
     }
     console.log(
-      '%s No seeding required. DB contains %d books.',
+      '%s No seeding required. DB contains %d jobs.',
       chalk.green('\u2713'),
       totalResults.length
     );
