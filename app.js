@@ -15,7 +15,7 @@ dotenv.load({path: '.env'});
 /**
  * Controllers ( Route handlers )
  */
-const bookController = require('./controllers/book');
+const jobController = require('./controllers/job');
 
 const dbServer  = process.env.DB_ENV || 'primary';
 /**
@@ -54,7 +54,7 @@ mongoose.connection.on('connected', (ref) => {
     /**
      * Basic app routes
      */
-    app.get('/books', bookController.getBooks);
+    app.get('/jobs', jobController.getJobs);
 
     /**
      * Start express server
@@ -62,4 +62,4 @@ mongoose.connection.on('connected', (ref) => {
     app.listen(app.get('port'), () => {
         console.log('%s App is running on http://localhost:%d in %s mode.', chalk.green('\u2713'), app.get('port'), app.get('env'));
     })
-})
+});
