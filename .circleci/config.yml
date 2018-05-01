@@ -52,4 +52,4 @@ workflows:
                 - lint-and-test-job
             filters:
                 branches:
-                only: master 
+                    only: master 
