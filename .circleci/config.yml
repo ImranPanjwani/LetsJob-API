@@ -35,6 +35,8 @@ jobs:
             name: Testing
             command: npm run test
   deploy-job:
+    docker:
+        - image: circleci/node:7.10-browsers
     steps:
         - checkout
         - run:
