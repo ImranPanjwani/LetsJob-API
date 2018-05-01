@@ -1,56 +1,25 @@
 version: 2
 jobs:
-  # The lint and test job
-  lint-and-test-job:
-    working_directory: ~/project
-    docker:
-        - image: circleci/node:8.8.1-browsers
-    steps:
-        # Checkout the code from the branch into the working_directory
-        - checkout
-        # Log the current branch
-        - run:
-            name: Show current branch
-            command: echo ${CIRCLE_BRANCH}
-        # Restore local dependencies from cache
-        - restore_cache:
-            keys:
-            - v1-dependencies-{{ checksum "package.json" }}
-            - v1-dependencies-
-        # Install project dependencies
-        - run:
-            name: Install local dependencies
-            command: npm install
-        # Cache local dependencies if they don't exist
-        - save_cache:
-            key: v1-dependencies-{{ checksum "package.json" }}
-            paths:
-                - node_modules
-        # Lint the source code
-        - run:
-            name: Linting
-            command: npm run lint
-        # Test the source code
-        - run:
-            name: Testing
-            command: npm run test
-  deploy-job:
-    steps:
-        - checkout
-        - run:
-            name: Deploy Master to Heroku
-            command: |
-            git push https://heroku:0d943091-412d-4846-bbfa-da57d47f08c3@git.heroku.com/lets-job.git master
-
+    lint-and-test-job:
+        working_directory: ~/project
+        docker:
+            - {image: 'circleci/node:8.8.1-browsers'}
+        steps:
+            - checkout
+            - {run: {name: 'Show current branch', command: 'echo ${CIRCLE_BRANCH}'}}
+            - {restore_cache: {keys: ['v1-dependencies-{{ checksum "package.json" }}', v1-dependencies-]}}
+            - {run: {name: 'Install local dependencies', command: 'npm install'}}
+            - {save_cache: {key: 'v1-dependencies-{{ checksum "package.json" }}', paths: [node_modules]}}
+            - {run: {name: Linting, command: 'npm run lint'}}
+            - {run: {name: Testing, command: 'npm run test'}}
+    deploy-job:
+        steps:
+            - checkout
+            - {run: null, name: 'Deploy Master to Heroku', command: 'git push https://heroku:0d943091-412d-4846-bbfa-da57d47f08c3@git.heroku.com/lets-job.git master'}
 workflows:
     version: 2
-
+    
     deploy:
-      jobs:
-        - lint-and-test-job
-        - deploy-job:
-            requires:
-                - lint-and-test-job
-            filters:
-                branches:
-                only: master
+        jobs:
+            - lint-and-test-job
+            - {deploy-job: {requires: [lint-and-test-job], filters: {branches: null, only: master}}}
