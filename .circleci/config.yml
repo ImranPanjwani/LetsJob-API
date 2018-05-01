@@ -53,8 +53,6 @@ workflows:
                 branches:
                     ignore: master
         - deploy-job:
-            requires:
-                - lint-and-test-job
             filters:
                 branches:
                     only: master 
