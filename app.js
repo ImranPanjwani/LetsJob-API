@@ -8,6 +8,8 @@ const chalk = require('chalk');
 const mongoose = require('mongoose');
 const seedData = require('./util/seedData');
 
+const router = express.Router();
+
 /**
  * Load environment variables from .env files ( API keys and passwords)
  */
@@ -55,8 +57,9 @@ mongoose.connection.on('connected', () => {
   /**
    * Basic app routes
    */
-  app.get('/jobs', jobController.getJobs);
+  router.get('/jobs', jobController.getJobs);
 
+  app.use('/api', router);
   /**
    * Start express server
    */
