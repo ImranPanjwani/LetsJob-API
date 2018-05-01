@@ -2,9 +2,9 @@ version: 2
 jobs:
   # The lint and test job
   lint-and-test-job:
-    working_directory: ~/project
+    working_directory: ~/repo
     docker:
-        - image: circleci/node:8.8.1-browsers
+        - image: circleci/node:7.10-browsers
     steps:
         # Checkout the code from the branch into the working_directory
         - checkout
@@ -52,4 +52,4 @@ workflows:
                 - lint-and-test-job
             filters:
                 branches:
-                only: master
+                only: master 
