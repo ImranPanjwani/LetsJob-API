@@ -44,12 +44,13 @@ jobs:
 
 workflows:
     version: 2
+    
     deploy:
         jobs:
-        - lint-and-test-job
-        - deploy-job:
-            requires:
-                - lint-and-test-job
-            filters:
-                branches:
-                only: master
+            - lint-and-test-job
+            - deploy-job:
+                requires:
+                    - lint-and-test-job
+                filters:
+                    branches:
+                    only: master
