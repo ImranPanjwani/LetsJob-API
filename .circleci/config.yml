@@ -48,7 +48,10 @@ workflows:
 
     deploy:
       jobs:
-        - lint-and-test-job
+        - lint-and-test-job:
+            filters:
+                branches:
+                    ignore: master
         - deploy-job:
             requires:
                 - lint-and-test-job
