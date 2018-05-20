@@ -6,6 +6,7 @@ const logger = require('morgan');
 const dotenv = require('dotenv');
 const chalk = require('chalk');
 const mongoose = require('mongoose');
+const cors = require('cors');
 const seedData = require('./util/seedData');
 
 const router = express.Router();
@@ -53,11 +54,13 @@ mongoose.connection.on('connected', () => {
    */
   app.set('port', process.env.PORT || 3000);
   app.use(logger('dev'));
+  app.use(cors());
 
   /**
    * Basic app routes
    */
   router.get('/jobs', jobController.getJobs);
+  router.post('/job', jobController.postJob);
 
   app.use('/api', router);
   /**

@@ -13,3 +13,17 @@ exports.getJobs = (req, res) => {
       res.send(err);
     });
 };
+
+/** Sample json data,* {
+        "contact_emails": [
+            "ghi@gmail.com"
+        ],
+        "contact_numbers": [
+            7777777777
+        ],
+        "title": "Job 3",
+        "description": "Description about job 3",
+        "category": "TEACH",
+    }
+*/
+// exports.postJob = (req, res) => {  };
