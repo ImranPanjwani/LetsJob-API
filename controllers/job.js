@@ -26,6 +26,4 @@ exports.getJobs = (req, res) => {
         "category": "TEACH",
     }
 */
-exports.postJob = (req, res) => {
-  
-};
+// exports.postJob = (req, res) => {  };
