@@ -60,7 +60,7 @@ mongoose.connection.on('connected', () => {
    * Basic app routes
    */
   router.get('/jobs', jobController.getJobs);
-  router.post('/job', jobController.postJob);
+  // router.post('/job', jobController.postJob);
 
   app.use('/api', router);
   /**
