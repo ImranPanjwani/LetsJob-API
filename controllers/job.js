@@ -25,5 +25,6 @@ exports.getJobs = (req, res) => {
         "description": "Description about job 3",
         "category": "TEACH",
     }
+
 */
 // exports.postJob = (req, res) => {  };
