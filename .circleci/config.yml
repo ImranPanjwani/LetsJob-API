@@ -41,7 +41,7 @@ jobs:
         - checkout
         - run:
             name: Deploy Master to Heroku
-            command: git push https://heroku:0d943091-412d-4846-bbfa-da57d47f08c3@git.heroku.com/lets-job.git master
+            command: git push https://heroku:$HEROKU_API_KEY@git.heroku.com/lets-job.git master
 
 workflows:
     version: 2
